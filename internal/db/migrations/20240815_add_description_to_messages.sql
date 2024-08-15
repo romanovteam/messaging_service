@@ -1,1 +1,1 @@
-ALTER TABLE messages ADD COLUMN description TEXT NULL;
+ALTER TABLE messages ADD COLUMN IF NOT EXISTS description TEXT NULL;
