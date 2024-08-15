@@ -18,7 +18,7 @@ func NewMessageHandler(service services.MessageService) *MessageHandler {
 func (h *MessageHandler) HandleMessage(c *gin.Context) {
 	var message models.Message
 	if err := c.ShouldBindJSON(&message); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid JSON or missing 'content' field"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid JSON or missing required fields"})
 		return
 	}
 

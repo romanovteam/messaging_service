@@ -25,8 +25,8 @@ func (r *messageRepository) SaveMessage(message *models.Message) error {
 	message.CreatedAt = time.Now()
 	message.UpdatedAt = time.Now()
 	_, err := db.Pool.Exec(context.Background(),
-		"INSERT INTO messages (content, processed, created_at, updated_at) VALUES ($1, $2, $3, $4)",
-		message.Content, message.Processed, message.CreatedAt, message.UpdatedAt)
+		"INSERT INTO messages (content, processed, created_at, updated_at, description) VALUES ($1, $2, $3, $4, $5)",
+		message.Content, message.Processed, message.CreatedAt, message.UpdatedAt, message.Description)
 	return err
 }
 
