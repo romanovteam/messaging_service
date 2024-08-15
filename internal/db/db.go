@@ -3,8 +3,8 @@ package db
 import (
 	"context"
 	"github.com/jackc/pgx/v4/pgxpool"
-	"io/ioutil"
 	"log"
+	"os"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -28,7 +28,7 @@ func CloseDB() {
 }
 
 func RunMigrations(migrationsDir string) {
-	files, err := ioutil.ReadDir(migrationsDir)
+	files, err := os.ReadDir(migrationsDir)
 	if err != nil {
 		log.Fatalf("Failed to read migrations directory: %v\n", err)
 	}
