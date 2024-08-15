@@ -1,0 +1,2 @@
+ALTER TABLE messages
+ALTER COLUMN description TYPE VARCHAR(1024) USING LEFT(description, 1024);
